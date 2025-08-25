@@ -5,11 +5,18 @@ export default function Home() {
     <div style={{ textAlign: "center", marginTop: "50px" }}>
       <h1>Chào mừng đến Tiệm Bánh 🍞</h1>
       <p>Chọn ngay bánh ngon cho bạn!</p>
-      <Link to="/chon-banh">
-        <button style={{ padding: "10px 20px", fontSize: "16px" }}>
-          Chọn bánh
-        </button>
-      </Link>
+      <div style={{ marginTop: "20px" }}>
+        <Link to="/chon-banh">
+          <button style={{ padding: "10px 20px", fontSize: "16px", marginRight: "10px" }}>
+            Chọn bánh
+          </button>
+        </Link>
+        <Link to="/video">
+          <button style={{ padding: "10px 20px", fontSize: "16px" }}>
+            Xem video
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }
