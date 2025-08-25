@@ -14,17 +14,7 @@ jobs:
       # Checkout code
       - uses: actions/checkout@v3
 
-      # Xóa image cũ nếu tồn tại
-      - name: Remove Old Docker Image if Exists
-        run: |
-          echo "Removing old Docker image if exists..."
-          if docker image inspect ${{ env.IMAGE_NAME }} >/dev/null 2>&1; then
-            docker rmi -f ${{ env.IMAGE_NAME }}
-            echo "Old image removed."
-          else
-            echo "No existing image to remove."
-          fi
-
+ 
       # Build Docker image
       - name: Build Docker Image
         run: |
