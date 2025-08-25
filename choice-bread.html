@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chọn Bánh</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+    }
+    header {
+      background: #333;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .bread-option {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+    button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background: #555;
+    }
+    .message {
+      margin-top: 15px;
+      text-align: center;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Chọn Bánh</h1>
+  </header>
+
+  <div class="container">
+    <h2>Hãy chọn loại bánh bạn thích</h2>
+
+    <label class="bread-option"><input type="checkbox" value="Bánh mì"> Bánh mì</label>
+    <label class="bread-option"><input type="checkbox" value="Bánh kem"> Bánh kem</label>
+    <label class="bread-option"><input type="checkbox" value="Bánh ngọt"> Bánh ngọt</label>
+    <label class="bread-option"><input type="checkbox" value="Bánh su kem"> Bánh su kem</label>
+    <label class="bread-option"><input type="checkbox" value="Bánh flan"> Bánh flan</label>
+
+    <button onclick="submitChoice()">Submit</button>
+
+    <div id="message" class="message"></div>
+  </div>
+
+  <script>
+    function submitChoice() {
+      const checkboxes = document.querySelectorAll("input[type='checkbox']:checked");
+      let selected = Array.from(checkboxes).map(cb => cb.value);
+
+      if (selected.length === 0) {
+        document.getElementById("message").innerText = "Vui lòng chọn ít nhất 1 loại bánh!";
+        return;
+      }
+
+      // Lấy dữ liệu cũ trong localStorage
+      let counts = JSON.parse(localStorage.getItem("breadVotes")) || {};
+
+      // Cập nhật số lần chọn
+      selected.forEach(item => {
+        counts[item] = (counts[item] || 0) + 1;
+      });
+
+      // Lưu lại
+      localStorage.setItem("breadVotes", JSON.stringify(counts));
+
+      document.getElementById("message").innerText = "Đã ghi nhận lựa chọn của bạn!";
+    }
+  </script>
+</body>
+</html>
