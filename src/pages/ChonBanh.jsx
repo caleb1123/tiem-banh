@@ -185,7 +185,7 @@ export default function ChonBanh() {
     const total = newSelected.reduce((sum, item) => sum + item.khomMay, 0);
 
     if (total > 100) {
-      showNotification("Bạn chỉ được chọn tối đa 100 Khóm Mây!", "error");
+      showNotification("Bạn chỉ được chọn tối đa trong 100 Khóm Mây!", "error");
       return;
     }
 
