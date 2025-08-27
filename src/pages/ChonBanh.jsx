@@ -214,7 +214,7 @@ export default function ChonBanh() {
         minHeight: "100vh",
         width: "100%",
         margin: 0,
-        padding: "120px 0 20px 0",
+        // padding: "120px 0 20px 0",
         fontFamily: "'Arial', sans-serif",
         boxSizing: "border-box",
         overflowY: "auto",
