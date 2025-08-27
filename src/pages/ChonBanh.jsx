@@ -75,8 +75,9 @@ const BanhCard = ({ name, khomMay, image, onSelect, isSelected }) => {
         borderRadius: "12px",
         boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
         padding: "16px",
-        margin: "16px",
-        width: "250px",
+        margin: "8px",
+        width: "100%",
+        maxWidth: "300px",
         transition: "all 0.3s ease",
         cursor: "pointer",
         border: isSelected ? "4px solid #f472b6" : "1px solid #e5e7eb",
@@ -96,8 +97,8 @@ const BanhCard = ({ name, khomMay, image, onSelect, isSelected }) => {
         alt={name}
         style={{
           width: "100%",
-          height: "160px",
-          objectFit: "cover",
+          height: "200px",
+          objectFit: "contain",
           borderRadius: "8px",
           marginBottom: "12px",
         }}
@@ -213,7 +214,7 @@ export default function ChonBanh() {
         minHeight: "100vh",
         width: "100%",
         margin: 0,
-        padding: "40px 0",
+        padding: "20px 0",
         fontFamily: "'Arial', sans-serif",
         boxSizing: "border-box",
       }}
@@ -246,9 +247,37 @@ export default function ChonBanh() {
           * {
             box-sizing: border-box;
           }
+          @media (max-width: 768px) {
+            .container {
+              padding: 0 8px;
+            }
+            h2 {
+              font-size: 20px;
+              margin: 16px 0;
+            }
+            p {
+              font-size: 16px;
+              margin-bottom: 16px;
+            }
+            .banh-card {
+              width: calc(50% - 16px);
+              margin: 8px;
+            }
+            button {
+              padding: 10px 20px;
+              font-size: 14px;
+            }
+          }
+          @media (max-width: 480px) {
+            .banh-card {
+              width: 100%;
+              max-width: 100%;
+            }
+          }
         `}
       </style>
       <div
+        className="container"
         style={{
           maxWidth: "min(100%, 1400px)",
           width: "100%",
@@ -283,7 +312,7 @@ export default function ChonBanh() {
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "center",
-            gap: "16px",
+            gap: "8px",
           }}
         >
           {banhList.map((banh) => (
