@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./pages/Header";
 import Home from "./pages/Home";
 import ChonBanh from "./pages/ChonBanh";
-import VideoPage from "./pages/Video";
+import VideoPage from "./pages/video";
 // import Menu from "./pages/";
 
 export default function App() {
