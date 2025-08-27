@@ -214,9 +214,11 @@ export default function ChonBanh() {
         minHeight: "100vh",
         width: "100%",
         margin: 0,
-        padding: "20px 0",
+        padding: "120px 0 20px 0",
         fontFamily: "'Arial', sans-serif",
         boxSizing: "border-box",
+        overflowY: "auto",
+        height: "100vh",
       }}
     >
       <style>
@@ -227,7 +229,6 @@ export default function ChonBanh() {
             width: 100%;
             height: 100%;
             background-color: #f9fafb;
-            overflow-x: hidden;
           }
           @keyframes slideIn {
             from { opacity: 0; transform: translateX(20px); }
@@ -247,16 +248,45 @@ export default function ChonBanh() {
           * {
             box-sizing: border-box;
           }
-          @media (max-width: 768px) {
-            .container {
+          @media (max-width: 1024px) {
+            .main-container {
               padding: 0 8px;
             }
+            .outer-container {
+              padding-top: 100px;
+            }
             h2 {
-              font-size: 20px;
-              margin: 16px 0;
+              font-size: 22px;
+              margin: 12px 0;
+              padding-top: 20px;
             }
             p {
               font-size: 16px;
+              margin-bottom: 16px;
+            }
+            .banh-card {
+              width: calc(33.33% - 16px);
+              margin: 8px;
+            }
+            button {
+              padding: 10px 20px;
+              font-size: 15px;
+            }
+          }
+          @media (max-width: 768px) {
+            .main-container {
+              padding: 0 8px;
+            }
+            .outer-container {
+              padding-top: 120px;
+            }
+            h2 {
+              font-size: 18px;
+              margin: 12px 0;
+              padding-top: 20px;
+            }
+            p {
+              font-size: 14px;
               margin-bottom: 16px;
             }
             .banh-card {
@@ -264,20 +294,36 @@ export default function ChonBanh() {
               margin: 8px;
             }
             button {
-              padding: 10px 20px;
+              padding: 8px 16px;
               font-size: 14px;
             }
           }
           @media (max-width: 480px) {
+            .outer-container {
+              padding-top: 140px;
+            }
             .banh-card {
               width: 100%;
               max-width: 100%;
+            }
+            h2 {
+              font-size: 16px;
+              margin: 8px 0;
+              padding-top: 20px;
+            }
+            p {
+              font-size: 12px;
+              margin-bottom: 12px;
+            }
+            button {
+              padding: 8px 16px;
+              font-size: 12px;
             }
           }
         `}
       </style>
       <div
-        className="container"
+        className="outer-container"
         style={{
           maxWidth: "min(100%, 1400px)",
           width: "100%",
